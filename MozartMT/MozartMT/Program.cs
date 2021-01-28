@@ -10,6 +10,23 @@ namespace MozartMT
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("1) Minuetten\n2) Trioen\n");
+            Console.Write("Choose a game: ");
+            int game = int.Parse(Console.ReadLine());
+
+            switch (game)
+            {
+                case 1:
+                    Minuetten();
+                    break;
+                case 2:
+                    Trioen();
+                    break;
+            }
+        }
+
+        static void Minuetten()
+        {
             Random random = new Random();
             int terningFirst;
             int terningSecond;
@@ -61,7 +78,50 @@ namespace MozartMT
 
                     System.Media.SoundPlayer sp = new System.Media.SoundPlayer();
 
-                    sp.SoundLocation = @"C:\Users\Snitzel Klaus\source\repos\MozartMT\Wave\" + vals[total - 1, i] + ".wav";
+                    sp.SoundLocation = @"C:\Programming\CSharp\SchoolProjects\MozartMT\Wave\" + vals[total - 1, i] + ".wav";
+                    sp.Play();
+
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nPlaying: " + sp.SoundLocation);
+
+                    Console.ReadKey();
+                }
+            }
+        }
+
+        static void Trioen()
+        {
+            Random random = new Random();
+            int terning;
+
+            while (true)
+            {
+                string[,] vals = {
+                    {"T72", "T6", "T59", "T25", "T81", "T41", "T89", "T13", "T36", "T5", "T46", "T79", "T30", "T95", "T19", "T66"},
+                    {"T56", "82", "T42", "T74", "T14", "T7", "T26", "T71", "T76", "T20", "T64", "T84", "T8", "T35", "T47", "T88"},
+                    {"T75", "T39", "T54", "T1", "T65", "T43", "T15", "T80", "T9", "T34", "T93", "T48", "T69", "T58", "T90", "T21"},
+                    {"T40", "T73", "T16", "T68", "T29", "T55", "T2", "T61", "T22", "T67", "T49", "T77", "T57", "T87", "T33", "T10",},
+                    {"T83", "T3", "T28", "T53", "T37", "T17", "T44", "T70", "T63", "T85", "T32", "T96", "T12", "T23", "T50", "T91",},
+                    {"T18", "T45", "T62", "T38", "T4", "T27", "T52", "T94", "T11", "T92", "T24", "T86", "T51", "T60", "T78", "T31",}
+                };
+
+                for (int i = 0; i <= 31; i++)
+                {
+                    terning = random.Next(1, 7);
+
+                    #region
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Kast din terning: ");
+                    Console.ReadKey();
+                    Console.Write("Du slog: ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine(terning);
+                    #endregion
+
+                    System.Media.SoundPlayer sp = new System.Media.SoundPlayer();
+
+                    sp.SoundLocation = @"C:\Programming\CSharp\SchoolProjects\MozartMT\Wave\" + vals[terning - 1, i] + ".wav";
                     sp.Play();
 
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
