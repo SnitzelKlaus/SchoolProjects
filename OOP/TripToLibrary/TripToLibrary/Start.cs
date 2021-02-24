@@ -7,8 +7,9 @@ namespace TripToLibrary
 {
     class Start
     {
-        private Stack<Book> Books = new Stack<Book>();
-        private List<Book> ListOfBooks = new List<Book>();
+        private Stack<Book> LoanedBooks = new Stack<Book>();
+        private Stack<Book> AvailableBooks = new Stack<Book>();
+        private List<Book> BookList = new List<Book>();
 
         public void Library()
         {
@@ -20,21 +21,27 @@ namespace TripToLibrary
 
             //Adding a list of books
             #region
-            ListOfBooks.Add(new Book("Laughing at Wall Street", "Chris Camillo"));
-            ListOfBooks.Add(new Book("But How Do It Know?","J Clark Scott"));
-            ListOfBooks.Add(new Book("The Art of Electronics", "Paul Horowitz"));
-            ListOfBooks.Add(new Book("Hacking\t\t", "Jon Erickson"));
-            ListOfBooks.Add(new Book("The Book of F#\t", "Dave Fancher"));
-            ListOfBooks.Add(new Book("Art of Assembly\t", "Randall Hyde"));
-            ListOfBooks.Add(new Book("Game Hacking\t", "Nick Cano"));
-            ListOfBooks.Add(new Book("Hacking VoIP\t", "Himanshu Dwivedi"));
-            ListOfBooks.Add(new Book("Book of GNS3\t", "Jason C. Neumann"));
-            ListOfBooks.Add(new Book("Linux Firewalls\t", "Micheal Rash"));
-            ListOfBooks.Add(new Book("TCP/IP Guide\t", "Charles M. Kozierok"));
-            ListOfBooks.Add(new Book("PoC||GTFO\t\t", "Manul Laproaig"));
-            ListOfBooks.Add(new Book("PoC||GTFO, Volume 2", "Manul Laproaig"));
-            ListOfBooks.Add(new Book("PoC||GTFO, Volume 3", "Manul Laproaig"));
+            BookList.Add(new Book("Laughing at Wall Street", "Chris Camillo"));
+            BookList.Add(new Book("But How Do It Know?","J Clark Scott"));
+            BookList.Add(new Book("The Art of Electronics", "Paul Horowitz"));
+            BookList.Add(new Book("Hacking\t\t", "Jon Erickson"));
+            BookList.Add(new Book("The Book of F#\t", "Dave Fancher"));
+            BookList.Add(new Book("Art of Assembly\t", "Randall Hyde"));
+            BookList.Add(new Book("Game Hacking\t", "Nick Cano"));
+            BookList.Add(new Book("Hacking VoIP\t", "Himanshu Dwivedi"));
+            BookList.Add(new Book("Book of GNS3\t", "Jason C. Neumann"));
+            BookList.Add(new Book("Linux Firewalls\t", "Micheal Rash"));
+            BookList.Add(new Book("TCP/IP Guide\t", "Charles M. Kozierok"));
+            BookList.Add(new Book("PoC||GTFO\t\t", "Manul Laproaig"));
+            BookList.Add(new Book("PoC||GTFO, Volume 2", "Manul Laproaig"));
+            BookList.Add(new Book("PoC||GTFO, Volume 3", "Manul Laproaig"));
             #endregion
+
+            //Stocking up the avialablebooks with booklist
+            foreach(Book book in BookList)
+            {
+                AvailableBooks.Push(new Book(book.Title, book.Auther));
+            }
 
             while (true)
             {
@@ -48,10 +55,17 @@ namespace TripToLibrary
                         ui.AddBook();
 
                         count = 0;
-                        foreach (Book book in ListOfBooks)
+                        foreach (Book book in BookList)
                         {
                             count++;
-                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            foreach (Book available in AvailableBooks)
+                            {
+                                if(available.Title == book.Title)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                }
+                            }
                             Console.Write("[{0}]", count);
                             Console.ForegroundColor = ConsoleColor.Gray;
                             Console.Write("\tBook: {0}", book.Title);
@@ -60,11 +74,44 @@ namespace TripToLibrary
 
                         ui.AddBookInput();
                         usrInput = InputParse.ParseInt();
+                        Console.Clear();
 
-                        if (usrInput > 0 && usrInput < ListOfBooks.Count+1)
+                        //Removes a book from 'AvailableBooks' and adds to 'LoanedBooks'
+                        Stack<Book> tmpAddedBook = new Stack<Book>();
+                        if (usrInput > 0 && usrInput <= BookList.Count)
                         {
-                            Books.Push(new Book(ListOfBooks[usrInput-1].Title, ListOfBooks[usrInput-1].Auther));
-                            ui.AddedBook();
+                            count = 0;
+                            foreach (Book book in BookList)
+                            {
+                                count++;
+                                if (usrInput == count)
+                                {
+                                    foreach (Book available in AvailableBooks)
+                                    {
+                                        if (book.Title == available.Title)
+                                        {
+                                            LoanedBooks.Push(new Book(book.Title, book.Auther));
+                                            ui.AddedBook();
+                                        }
+                                    }
+                                }
+                                else if (userInput != count)
+                                {
+                                    foreach (Book available in AvailableBooks)
+                                    {
+                                        if (book.Title == available.Title)
+                                        {
+                                            tmpAddedBook.Push(new Book(book.Title, book.Auther));
+                                        }
+                                    }
+                                }
+                            }
+                            AvailableBooks.Clear();
+                            foreach (Book book in tmpAddedBook)
+                            {
+                                AvailableBooks.Push(new Book(book.Title, book.Auther));
+                            }
+                            tmpAddedBook.Clear();
                         }
                         else
                         {
@@ -76,7 +123,7 @@ namespace TripToLibrary
                         ui.RemoveBook();
 
                         count = 0;
-                        foreach (Book book in Books)
+                        foreach (Book book in LoanedBooks)
                         {
                             count++;
                             Console.ForegroundColor = ConsoleColor.Blue;
@@ -86,13 +133,14 @@ namespace TripToLibrary
                             Console.WriteLine("\t\tAuther: {0}", book.Auther);
                         }
 
+                        //Removes a book from user and adds to 'AvailableBooks'
                         ui.RemoveBookInput();
                         usrInput = InputParse.ParseInt();
                         Stack<Book> tmpBooks = new Stack<Book>();
                         count = 0;
-                        if (usrInput > 0 && usrInput < Books.Count + 1)
+                        if (usrInput > 0 && usrInput <= LoanedBooks.Count)
                         {
-                            foreach(Book book in Books)
+                            foreach(Book book in LoanedBooks)
                             {
                                 count++;
                                 if(usrInput != count)
@@ -101,13 +149,14 @@ namespace TripToLibrary
                                 }
                                 else
                                 {
+                                    AvailableBooks.Push(new Book(book.Title, book.Auther));
                                     ui.RemovedBook();
                                 }
                             }
-                            Books.Clear();
+                            LoanedBooks.Clear();
                             foreach(Book book in tmpBooks)
                             {
-                                Books.Push(new Book(book.Title, book.Auther));
+                                LoanedBooks.Push(new Book(book.Title, book.Auther));
                             }
                             tmpBooks.Clear();
                         }
@@ -121,7 +170,7 @@ namespace TripToLibrary
                     case '3':
                         Console.Clear();
                         count = 0;
-                        foreach (Book book in Books)
+                        foreach (Book book in LoanedBooks)
                         {
                             count++;
                             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -135,20 +184,28 @@ namespace TripToLibrary
                     case '9':
                         ui.Checkout();
                         count = 0;
-                        foreach (Book book in Books)
+                        foreach (Book book in LoanedBooks)
                         {
-                            count++;
+                            LoanedBooks.Peek();
                             Console.ForegroundColor = ConsoleColor.DarkGray;
                             Console.Write("[{0}]", count);
                             Console.ForegroundColor = ConsoleColor.Gray;
                             Console.Write("\tBook: {0}", book.Title);
-                            Console.Write("\t\tAuther: {0}", book.Auther);
-                            Thread.Sleep(150);
-                            Console.WriteLine("\t\t[LOANED] \nLending period: 3 month(s)\n");
+                            Console.Write("\t\tAuther: {0}\n", book.Auther);
+                            userInput = Console.ReadKey().KeyChar;
+                            if (userInput == '0')
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine(" = Stopped lending. Press a key to go back...");
+                                break;
+                            }
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("[LOANED]::Lending period: 3 month(s)\n");
+                            count++;
                         }
-                        for(int i = 0; i < count; i++)
+                        for (int i = 0; i < count; i++)
                         {
-                            Books.Pop();
+                            LoanedBooks.Pop();
                         }
                         Console.ReadKey();
                         Console.Clear();

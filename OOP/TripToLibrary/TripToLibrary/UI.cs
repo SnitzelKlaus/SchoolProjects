@@ -64,14 +64,26 @@ namespace TripToLibrary
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("=================");
+            Console.WriteLine("================");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\n   Add Items   \n");
+            Console.WriteLine("\n   Add Book   \n");
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("=================\n");
+            Console.WriteLine("================\n");
 
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Choose one of the following books:\n");
+            Console.WriteLine("Choose one of the following books:");
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("\n########################");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("[]");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" = Available ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("[]");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" = Not available ");
+            Console.WriteLine("########################\n");
         }
 
         public void AddBookInput()
@@ -98,7 +110,18 @@ namespace TripToLibrary
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("ERROR 404: ");
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("The book entered, doesn't exist!");
+            Console.WriteLine("The book entered, doesn't exist");
+        }
+
+        public void BookNotAvailable()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("===================");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("ERROR: ");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("The book entered, is currently not available");
         }
 
         public void RemoveBook()
@@ -152,6 +175,11 @@ namespace TripToLibrary
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("==================\n");
             Console.ForegroundColor = ConsoleColor.Gray;
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Press a key to lend the listed books.");
+            Console.WriteLine("Press '0' to stop lending.\n");
+
         }
         #endregion
     }
