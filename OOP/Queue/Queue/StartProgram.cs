@@ -14,7 +14,6 @@ namespace Queue
             UI ui = new UI();
 
             char userInput;
-            char back;
             string name;
             int qty;
 
