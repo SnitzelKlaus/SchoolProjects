@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace JediMindTricks
 {
@@ -6,7 +8,21 @@ namespace JediMindTricks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Dictionary<string, int> people = new Dictionary<string, int>();
+
+            people.Add("Benjamin", 20);
+            people.Add("Han", 23);
+            people.Add("Nicki", 19);
+
+            Console.WriteLine($"First person: {people.First()}");
+
+            people.Remove("Han");
+
+            Console.WriteLine();
+            foreach (KeyValuePair<string, int> pair in people)
+            {
+                Console.WriteLine($"Name: {pair.Key} Age: {pair.Value}");
+            }
         }
     }
 }
