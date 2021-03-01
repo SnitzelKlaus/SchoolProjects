@@ -6,6 +6,8 @@ namespace MovieNightFirstPart
 {
     public class UIGraphics
     {
+        //Graphical stuff for the user interface
+        #region
         public void Menu()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -118,5 +120,6 @@ namespace MovieNightFirstPart
             Console.Write("[Title]: ");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
         }
+        #endregion
     }
 }

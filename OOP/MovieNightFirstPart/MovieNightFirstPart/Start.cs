@@ -4,19 +4,19 @@ using System.Text;
 
 namespace MovieNightFirstPart
 {
-    class Start
+    public class Start
     {
         //Input values
-        public int userInput;
-        private bool inputValid;
+        public int UserInput;
+        private bool InputValid; //Checks if input exist
 
         //Movie attributes
-        private int id;
-        private string title;
-        private int year;
-        private string genre;
-        private string describtion;
-        private double review;
+        private int ID;
+        private string Title;
+        private int Year;
+        private string Genre;
+        private string Describtion;
+        private double Review;
 
         public void Menu()
         {
@@ -37,9 +37,9 @@ namespace MovieNightFirstPart
 
                 //Gets userinput using ParseInput(); <--- Checks if input is an int. If not user can correct until input is valid.
                 uiGraphics.UserInput();
-                userInput = parseInput.ParseInt();
+                UserInput = parseInput.ParseInt();
 
-                if (userInput == 0)
+                if (UserInput == 0)
                 {
                     //Allows user to search for a movie
                     Search();
@@ -59,12 +59,12 @@ namespace MovieNightFirstPart
             //List of actors in movie
             List<int> actorID = new List<int>();
 
-            uiGraphics.SelectedMovie(title, year, genre, describtion, review);
+            uiGraphics.SelectedMovie(Title, Year, Genre, Describtion, Review);
             
             //Getting actors from movie
             foreach(ActorsInMovie actors in MovieManager.GetActorsInMovie())
             {
-                if (id.Equals(actors.Movie_ID))
+                if (ID.Equals(actors.Movie_ID))
                 {
                     actorID.Add(actors.Actor_SID);
                 }
@@ -104,7 +104,7 @@ namespace MovieNightFirstPart
 
             //Gets userinput to select movie
             uiGraphics.UserInput();
-            userInput = parseInput.ParseInt();
+            UserInput = parseInput.ParseInt();
 
             //Checks if movie exists
             MovieCheck();
@@ -117,27 +117,27 @@ namespace MovieNightFirstPart
             //Selects a movie if user input = movie
             foreach (Movie movie in MovieManager.GetMovies())
             {
-                if (userInput.Equals(movie.Movie_ID))
+                if (UserInput.Equals(movie.Movie_ID))
                 {
                     //Sets data for the selected movie
-                    id = movie.Movie_ID;
-                    title = movie.Movie_Title;
-                    year = movie.Movie_Year;
-                    genre = movie.Movie_Genre;
-                    describtion = movie.Movie_Description;
-                    review = movie.Movie_Review;
+                    ID = movie.Movie_ID;
+                    Title = movie.Movie_Title;
+                    Year = movie.Movie_Year;
+                    Genre = movie.Movie_Genre;
+                    Describtion = movie.Movie_Description;
+                    Review = movie.Movie_Review;
 
-                    inputValid = true;
+                    InputValid = true;
                     break;
                 }
                 else
                 {
-                    inputValid = false;
+                    InputValid = false;
                 }
             }
 
             //If valid continue, else try again
-            if (inputValid)
+            if (InputValid)
             {
                 SelectedMovie();
             }
