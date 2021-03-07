@@ -8,9 +8,9 @@ namespace Geometri
     {
         private double Side { get; set; }
 
-        public Square(double Side)
+        public Square(double side)
         {
-            this.Side = Side;
+            Side = side;
         }
 
         public double Perimeter()
