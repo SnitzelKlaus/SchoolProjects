@@ -23,7 +23,6 @@ namespace MovieNightFirstPart
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("[0] ");
             Console.ForegroundColor = ConsoleColor.White;
-
             Console.WriteLine("Search\n");
         }
 
@@ -49,6 +48,21 @@ namespace MovieNightFirstPart
             Console.WriteLine("The movie entered, doesn't exist! (Enter a movie that exist)\n");
         }
 
+        public void OptionNotValid()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("----------{");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Opsie!");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("}----------\n");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("ERROR: ");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("The search option entered, doesn't exist! (Enter a search option that exist)\n");
+        }
+
         public void Movies(int id, string title)
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -59,6 +73,18 @@ namespace MovieNightFirstPart
             Console.Write("Title: ");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("{0}", title);
+        }
+
+        public void Actors(int id, string firstName, string lastName)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("[{0}]  ", id);
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("Actor: ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("{0} {1}", firstName, lastName);
         }
 
         public void SelectedMovie(string title, int year, string genre, string description, double review)
@@ -95,12 +121,42 @@ namespace MovieNightFirstPart
             Console.WriteLine("\nActors:");
         }
 
+        public void SelectedActor(string firstName, string lastName)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("----------{");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("{0} {1}", firstName, lastName);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("}----------\n");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Movies:");
+        }
+
         public void ActorsInMovie(string firstName, string lastName)
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("[Actor]: ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"{firstName} {lastName}");
+        }
+
+        public void MoviesInActor(string Title)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("[Movies]: ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"{Title}");
+        }
+
+        public void MoviesInGenre(string Title)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("[Movies]: ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"{Title}");
         }
 
         public void Search()
@@ -114,10 +170,73 @@ namespace MovieNightFirstPart
             Console.WriteLine("}----------\n");
 
             Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("What do you want to search?\n");
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("[1] ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Movies");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("[2] ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Actors");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("[3] ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Genre\n");
+        }
+
+        public void MovieSearch()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("----------{");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Search Movie");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("}----------\n");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Search by title: \n");
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("[Title]: ");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        }
+
+        public void ActorSearch()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("----------{");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Search Actor");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("}----------\n");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Search by first name: \n");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("[Actor]: ");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        }
+
+        public void GenreSearch()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("----------{");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Search Genre");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("}----------\n");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Search by genre: \n");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("[Genre]: ");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
         }
         #endregion
