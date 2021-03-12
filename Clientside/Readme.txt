@@ -1,6 +1,6 @@
 ______________________
 
-Movie Night DB
+Movie Web App
 ______________________
 
 To get the website working install sql and execute 'MovieNightDB'
