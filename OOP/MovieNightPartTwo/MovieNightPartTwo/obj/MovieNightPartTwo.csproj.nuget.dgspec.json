@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Snitzel Klaus\\source\\repos\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {}
+    "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Snitzel Klaus\\source\\repos\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {
+    "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Snitzel Klaus\\source\\repos\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
+        "projectUniqueName": "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
         "projectName": "MovieNightPartTwo",
-        "projectPath": "C:\\Users\\Snitzel Klaus\\source\\repos\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
+        "projectPath": "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
         "packagesPath": "C:\\Users\\Snitzel Klaus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Snitzel Klaus\\source\\repos\\MovieNightPartTwo\\MovieNightPartTwo\\obj\\",
+        "outputPath": "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

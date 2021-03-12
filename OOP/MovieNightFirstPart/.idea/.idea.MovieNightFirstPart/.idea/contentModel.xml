@@ -6,6 +6,7 @@
         <e p="Actor.cs" t="Include" />
         <e p="ActorsInMovie.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="DalManager.cs" t="Include" />
         <e p="Movie.cs" t="Include" />
         <e p="MovieManager.cs" t="Include" />
         <e p="MovieNightFirstPart.csproj" t="IncludeRecursive" />
