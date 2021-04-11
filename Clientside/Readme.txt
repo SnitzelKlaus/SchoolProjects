@@ -16,4 +16,4 @@ private static string SqlConnection = @"Data Source=(Local)\MSSQLSERVER01;Initia
 
 'MSSQLSERVER01' is the name of my database, find yours and change it to your database. This should solve any problems that may occur.
 
-If problem persist, contact me by mail: 'Beho54@gmail.com'
+If problem persist, contact me by mail: 'snitzelklaus@gmail.com'
