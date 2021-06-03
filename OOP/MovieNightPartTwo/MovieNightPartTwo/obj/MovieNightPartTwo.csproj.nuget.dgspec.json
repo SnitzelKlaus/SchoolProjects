@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {}
+    "C:\\Programmering\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {}
   },
   "projects": {
-    "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {
+    "C:\\Programmering\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
+        "projectUniqueName": "C:\\Programmering\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
         "projectName": "MovieNightPartTwo",
-        "projectPath": "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
-        "packagesPath": "C:\\Users\\Snitzel Klaus\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\CSharp\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\obj\\",
+        "projectPath": "C:\\Programmering\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\MovieNightPartTwo.csproj",
+        "packagesPath": "C:\\Users\\beho5\\.nuget\\packages\\",
+        "outputPath": "C:\\Programmering\\SchoolProjects\\OOP\\MovieNightPartTwo\\MovieNightPartTwo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Snitzel Klaus\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\beho5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
